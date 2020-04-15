@@ -21,3 +21,16 @@ after_sucess:
     - docker push xenonpluton/multi-server
     - docker push xenonpluton/multi-worker
 
+deploy: 
+    edge: true
+    provider: elasticbeanstalk
+    region: us-east-2
+    app: multi-docker2
+    env: MultiDocker2-env
+    bucket_name: elasticbeanstalk-us-east-2-867256822293
+    bucket_path: docker-multi
+    on: 
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+
